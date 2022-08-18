@@ -67,6 +67,7 @@ namespace StarterAssets
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		private PlayerInput _playerInput;
+		private Camera cam;
 #endif
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
