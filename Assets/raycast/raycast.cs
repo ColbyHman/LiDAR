@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class raycast : MonoBehaviour
 {
@@ -22,11 +23,15 @@ public class raycast : MonoBehaviour
         // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
         layerMask = ~layerMask;
 
-        RaycastHit hit;
+        RaycastHit hit;     
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(theCam.position, theCam.forward, out hit, Mathf.Infinity, layerMask))
+        Vector3 direction= theCam.forward;
+        Vector3 spread = Vector3.zero;
+        spread += theCam.up * Random.Range(-1 * focus, focus);
+        spread += theCam.right * Random.Range(-1 * focus, focus);
+        if (Physics.Raycast(theCam.position, spread + direction, out hit, Mathf.Infinity, layerMask))
         {
-            Debug.DrawRay(theCam.position, theCam.forward * hit.distance, Color.yellow);
+            //Debug.DrawRay(theCam.position, theCam.forward * hit.distance, Color.yellow);
             Debug.Log("Did Hit");
             Instantiate(raycastCreate, hit.point, raycastCreate.transform.rotation);
         }

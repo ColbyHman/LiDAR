@@ -9,12 +9,12 @@ public class Billboard : MonoBehaviour
     void Start()
     {
         theCam=Camera.main.transform;
-        
+        transform.forward = theCam.forward;
     }
 
     // Update is called once per frame
-    void LateUpdate()
-    {
-        transform.forward = theCam.forward;
-    }
+//    void LateUpdate()
+//    {
+        
+//    }
 }
