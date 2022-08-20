@@ -11,12 +11,16 @@ public class RandomlyPlaceEnviroSprites : MonoBehaviour
     public float minDistance, maxDistance;
 
     public float height;
+
+    public Camera cam;
     
     private Vector3 spawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
+        cam = this.transform.parent.GetComponent<Camera>();
+
         foreach(GameObject spr in lidarPoints)
         {
             SelectSpawnPoint(minDistance);
@@ -41,9 +45,12 @@ public class RandomlyPlaceEnviroSprites : MonoBehaviour
 
     public void SelectSpawnPoint(float minDist)
     {
-        spawnPoint.x = Random.Range(-1f, 1f);
-        spawnPoint.z = Random.Range(-1f, 1f);
-        spawnPoint.y = height;
+        float x = Random.Range(0, 1f);
+        float y = Random.Range(0, 1f);
+        float z = Random.Range(minDistance, maxDistance);
+        // spawnPoint.y = height;
+
+        spawnPoint = cam.ViewportToWorldPoint(new Vector3(x, y, z));
         spawnPoint = Vector3.ClampMagnitude(spawnPoint, 1f) * maxDistance;
 
         if(spawnPoint.magnitude < minDist)

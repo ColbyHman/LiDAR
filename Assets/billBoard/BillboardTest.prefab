@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7865490161415641785}
   - component: {fileID: 7865490161415641734}
   - component: {fileID: 7865490161415641735}
+  - component: {fileID: 2722412485853061729}
   m_Layer: 0
   m_Name: BillboardTest
   m_TagString: Untagged
@@ -92,6 +93,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7865490161415641732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc817d6fdf4c66c409434b30f24a22f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 019a4536ac9e999408448f986dfc0f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lidarPoints: []
+  copiesToMake: 0
+  minDistance: 0
+  maxDistance: 0
+  height: 0
+--- !u!114 &2722412485853061729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7865490161415641732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfc693e0c0d2cd47b739ea7a9429f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
