@@ -721,7 +721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lidarPoints:
   - {fileID: 915927329}
-  copiesToMake: 30000
+  copiesToMake: 10000
   minDistance: 1
   maxDistance: 10
   height: 0.1
