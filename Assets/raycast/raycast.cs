@@ -7,6 +7,7 @@ public class raycast : MonoBehaviour
 {
     private Transform theCam;
     public GameObject raycastCreate;
+    public float focus;
     void Start()
     {
         theCam=Camera.main.transform;
