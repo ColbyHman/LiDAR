@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class RandomlyPlaceEnviroSprites : MonoBehaviour
 {
-    public GameObject[] allSprites, foliage;
+    public GameObject[] lidarPoints;
 
-    public int copiesToMake, foliageCopies;
+    public int copiesToMake;
 
     public float minDistance, maxDistance;
 
+    public float height;
+    
     private Vector3 spawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject spr in allSprites)
+        foreach(GameObject spr in lidarPoints)
         {
             SelectSpawnPoint(minDistance);
 
@@ -28,20 +30,7 @@ public class RandomlyPlaceEnviroSprites : MonoBehaviour
                 Instantiate(spr, spawnPoint, spr.transform.rotation).transform.parent = transform;
             }
         }
-
-        foreach(GameObject fol in foliage)
-        {
-            SelectSpawnPoint(0f);
-
-            fol.transform.position = spawnPoint;
-
-            for (int i = 0; i < foliageCopies; i++)
-            {
-                SelectSpawnPoint(0f);
-
-                Instantiate(fol, spawnPoint, fol.transform.rotation).transform.parent = transform;
-            }
-        }
+        
     }
 
     // Update is called once per frame
@@ -54,7 +43,7 @@ public class RandomlyPlaceEnviroSprites : MonoBehaviour
     {
         spawnPoint.x = Random.Range(-1f, 1f);
         spawnPoint.z = Random.Range(-1f, 1f);
-
+        spawnPoint.y = height;
         spawnPoint = Vector3.ClampMagnitude(spawnPoint, 1f) * maxDistance;
 
         if(spawnPoint.magnitude < minDist)
