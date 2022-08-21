@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 public class raycast : MonoBehaviour
@@ -31,8 +32,10 @@ public class raycast : MonoBehaviour
         spread += theCam.right * Random.Range(-1 * focus, focus);
         if (Physics.Raycast(theCam.position, spread + direction, out hit, Mathf.Infinity, layerMask))
         {
-            //Debug.DrawRay(theCam.position, theCam.forward * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            Debug.DrawRay(theCam.position, theCam.forward * hit.distance, Color.yellow);
+            //Debug.Log("Did Hit");
+
+            Debug.Log(Mouse.current.scroll.ReadValue().normalized);
             Instantiate(raycastCreate, hit.point, raycastCreate.transform.rotation);
         }
         else
