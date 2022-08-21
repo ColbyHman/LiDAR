@@ -5,18 +5,29 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
+
 public class raycast : MonoBehaviour
 {
     private Transform theCam;
     public GameObject raycastCreate;
     public float focus;
+
+    // private PlayerControls playerControls;
     void Start()
     {
         theCam=Camera.main.transform;
-        
     }
     private void FixedUpdate()
     {
+        Debug.Log(Mouse.current.scroll.ReadValue());
+        // Change focus based on scroll wheel
+        if (Mouse.current.scroll.ReadValue().y == 120) {
+            focus += 0.1f;
+        } else if (Mouse.current.scroll.ReadValue().y == -120) {
+            focus -= 0.1f;
+        }
+        focus = Mathf.Clamp(focus, 0.00f, 1.00f);
+
         // Bit shift the index of the layer (8) to get a bit mask
         int layerMask = 1 << 8;
 
@@ -35,13 +46,13 @@ public class raycast : MonoBehaviour
             Debug.DrawRay(theCam.position, theCam.forward * hit.distance, Color.yellow);
             //Debug.Log("Did Hit");
 
-            Debug.Log(Mouse.current.scroll.ReadValue().normalized);
+            //Debug.Log(Mouse.current.scroll.ReadValue().normalized);
             Instantiate(raycastCreate, hit.point, raycastCreate.transform.rotation);
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
+            //Debug.Log("Did not Hit");
         }
     }
 }
