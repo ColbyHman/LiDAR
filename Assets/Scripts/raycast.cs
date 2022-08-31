@@ -19,14 +19,16 @@ public class raycast : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log(Mouse.current.scroll.ReadValue());
+        // Debug.Log(Mouse.current.scroll.ReadValue());
         // Change focus based on scroll wheel
-        if (Mouse.current.scroll.ReadValue().y == 120) {
+        if (Mouse.current.scroll.ReadValue().y > 0) {
+            //Debug.Log(Mouse.current.scroll.ReadValue());
             focus += 0.1f;
-        } else if (Mouse.current.scroll.ReadValue().y == -120) {
+        } else if (Mouse.current.scroll.ReadValue().y < 0) {
+            //Debug.Log(Mouse.current.scroll.ReadValue());
             focus -= 0.1f;
         }
-        focus = Mathf.Clamp(focus, 0.00f, 1.00f);
+        focus = Mathf.Clamp(focus, 0.00f, 0.50f);
 
         // Bit shift the index of the layer (8) to get a bit mask
         int layerMask = 1 << 8;

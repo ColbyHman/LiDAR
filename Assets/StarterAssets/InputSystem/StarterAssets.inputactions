@@ -55,7 +55,7 @@
                 },
                 {
                     "name": "Zoom",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "0cf4e68b-bcb9-44c4-872a-1805352964b9",
                     "expectedControlType": "Axis",
                     "processors": "",
@@ -262,37 +262,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "0f104e3a-0942-4b56-a3d8-939f160ba557",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "02ca574b-17be-439c-9ba5-af6e0282e6d5",
+                    "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Zoom",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "54616e6c-bf27-4057-9514-470cb20f946b",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "7c5814e4-bf80-4c10-bef1-c7b349f686d3",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }
